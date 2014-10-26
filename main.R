@@ -21,6 +21,14 @@ readDataset <- function() {
         if(!exists("dsNEI")) {
                 print("Reading file summarySCC_PM25.rds ...")
                 dsNEI <<- readRDS("summarySCC_PM25.rds")
+                
+                print("Creating index ix_dsNEI_01...")
+                sqldf("create index ix_dsNEI_01 on dsNEI(SCC)")
+
+                print("Creating index ix_dsNEI_02...")
+                sqldf("create index ix_dsNEI_02 on dsNEI(fips)")
+                
+
         }
         
         
@@ -35,6 +43,9 @@ readDataset <- function() {
                 
                 print("Reading file Source_Classification_Code.rds ...")
                 dsSCC <<- readRDS("Source_Classification_Code.rds")
+                
+                print("Creating index ix_dsSCC_01...")
+                sqldf("create index ix_dsSCC_01 on dsSCC(SCC)")
                 
                 # Replaces "." with "_"
                 names(dsSCC) <<- gsub(".", "_", names(dsSCC), fixed=TRUE)
