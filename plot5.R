@@ -11,7 +11,7 @@ plot5 <- function() {
         # Test if the dataset has been already created.
         if(!exists("dsPlot5")) {
                 
-                print("Reading plot4 dataset ...")
+                print("Reading plot5 dataset ...")
                 
                 dsPlot5 <<- sqldf("select       a.year                  as year
                                                 ,sum(a.Emissions)       as Emissions 

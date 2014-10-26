@@ -12,7 +12,7 @@ plot6 <- function() {
         # Test if the dataset has been already created.
         if(!exists("dsPlot6")) {
                 
-                print("Reading plot4 dataset ...")
+                print("Reading plot6 dataset ...")
                 
                 dsPlot6 <<- sqldf("select       a.year                  as year
                                                 , case(a.fips)
